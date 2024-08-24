@@ -1,0 +1,32 @@
+server:
+    port: 8085
+spring:
+    application:
+        name: Utility-batch
+    kafka:
+      producer:
+        bootstrap-servers: "192.168.56.1:9092"
+        key-serializer: "org.apache.kafka.common.serialization.StringSerializer"
+        value-serializer: "io.confluent.kafka.serializers.KafkaAvroSerializer"
+        properties:
+          schema:
+            registry:
+              url: "http://192.168.56.1:8081"
+      consumer:
+        group-id: "my-topic"
+        keyDeserializer: "org.apache.kafka.common.serialization.StringDeserializer"
+        valueDeserializer: "io.confluent.kafka.serializers.KafkaAvroDeserializer"
+        autoOffsetReset: "earliest"
+        properties:
+          schema:
+            registry:
+              url: "http://127.0.0.1:8081"
+          specific:
+            avro:
+              reader: "true"
+personal:
+     email: biswojitp11@gmail.com
+
+topic:
+  name: test-topic
+
