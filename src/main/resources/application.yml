@@ -3,6 +3,23 @@ server:
 spring:
     application:
         name: Utility-batch
+    jpa:
+      hibernate:
+        ddl-auto: none
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3309/utility
+      username: root
+      password: Root@123
+    flyway:
+      sql-migration-prefix: ECM-
+      sql-migration-separator: __
+      sql-migration-suffixes: .sql
     kafka:
       producer:
         bootstrap-servers: "192.168.56.1:9092"

@@ -1,0 +1,4 @@
+CREATE PROCEDURE new_procedure()
+BEGIN
+SELECT * FROM utility.USER;
+END;
